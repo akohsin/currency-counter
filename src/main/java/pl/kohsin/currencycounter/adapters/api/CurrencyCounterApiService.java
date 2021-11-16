@@ -15,6 +15,6 @@ class CurrencyCounterApiService {
 
     ConvertAccountBalanceResponse convertAccountBalance(String accountNumber, Currency destinationCurrency) {
         ConvertedCurrency convertedCurrency = currencyCounterService.convertAccountBalance(accountNumber, destinationCurrency);
-        return ConvertAccountBalanceResponse.of(convertedCurrency);
+        return ConvertAccountBalanceResponse.of(convertedCurrency, destinationCurrency);
     }
 }
