@@ -49,6 +49,16 @@ class CurrencyCounterApplicationTests {
         ConvertedCurrency testedResult = currencyCounterService.convertAccountBalance("123", eur);
         Assertions.assertEquals(expectedBalance, testedResult.getAmount());
         Assertions.assertEquals(eur, testedResult.getCurrency());
-    }
 
+        accountBalance = BigDecimal.valueOf(600);
+
+        Mockito.when(currencyRateProvider.getActualCurrencyRate(pln, eur)).thenReturn(CurrencyRate.of(plnToEurCurrencyRate, pln, eur));
+        Mockito.when(accountRepository.getAccount(Mockito.anyString())).thenReturn(Account.of("123", accountBalance, pln));
+
+        expectedBalance = accountBalance.multiply(plnToEurCurrencyRate).setScale(2, RoundingMode.DOWN);
+
+        testedResult = currencyCounterService.convertAccountBalance("123", eur);
+        Assertions.assertEquals(expectedBalance, testedResult.getAmount());
+        Assertions.assertEquals(eur, testedResult.getCurrency());
+    }
 }

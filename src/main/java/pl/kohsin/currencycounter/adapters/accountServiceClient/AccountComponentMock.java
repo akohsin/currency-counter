@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.Currency;
 
 @Component
-public class AccountComponentMock implements AccountRepository {
+class AccountComponentMock implements AccountRepository {
 
     @Override
     public Account getAccount(String accountNumber) {

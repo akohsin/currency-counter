@@ -14,11 +14,11 @@ import java.util.Objects;
 
 @Component
 @RequiredArgsConstructor
-public class NbpApiClient {
+class NbpApiClient {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
-    public BigDecimal getActualCurrencyRate(Currency destinationCurrency) {
+    BigDecimal getActualCurrencyRate(Currency destinationCurrency) {
         String GET_ACTUAL_AVG_RATE = "http://api.nbp.pl/api/exchangerates/rates/";
         String TABLE_A = "A";
 

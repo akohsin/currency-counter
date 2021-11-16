@@ -9,11 +9,11 @@ import java.util.Currency;
 
 @Service
 @RequiredArgsConstructor
-public class CurrencyCounterApiService {
+class CurrencyCounterApiService {
 
     private final CurrencyCounterService currencyCounterService;
 
-    public ConvertAccountBalanceResponse convertAccountBalance(String accountNumber, Currency destinationCurrency) {
+    ConvertAccountBalanceResponse convertAccountBalance(String accountNumber, Currency destinationCurrency) {
         ConvertedCurrency convertedCurrency = currencyCounterService.convertAccountBalance(accountNumber, destinationCurrency);
         return ConvertAccountBalanceResponse.of(convertedCurrency);
     }

@@ -12,7 +12,7 @@ import java.util.Currency;
 
 @Component
 @RequiredArgsConstructor
-public class CurrencyRateService implements CurrencyRateProvider {
+class CurrencyRateService implements CurrencyRateProvider {
 
     private final NbpApiClient nbpApiClient;
 

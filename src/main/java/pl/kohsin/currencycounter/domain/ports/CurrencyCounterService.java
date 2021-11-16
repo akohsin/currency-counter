@@ -10,7 +10,7 @@ import java.util.Currency;
 
 @Service
 @RequiredArgsConstructor
-public class CurrencyCounterService {
+public final class CurrencyCounterService {
 
     private final AccountRepository accountRepository;
     private final CurrencyRateProvider currencyRateProvider;
